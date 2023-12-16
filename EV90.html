@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#607594">
+    <title>EV90 eForm</title>
+    <link rel="stylesheet" href="src/master.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/logo192.png">
+</head>
+<body>
+    <iframe id="linkto" src="about:blank"
+     frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+    <!-- <script src="src/index.js"></script> -->
+    <script>
+        const queryString = window.location.search;
+        document.getElementById('linkto').src = "https://script.google.com/macros/s/AKfycbwelrcAm_LyHDexxdvbA15BEhUmQKIaR83TKok8xz94DdwrRy_ZMzDbryauorKcSqFKbw/exec"+queryString;
+        /*if("serviceWorker" in navigator) {
+            console.log("Will service worker register?");
+            navigator.serviceWorker.register("sw.js").then(registration => {
+                console.log("SW Registered!");
+                console.log(registration);
+            }).catch(error => {
+                console.log("SW REgistration Failed!");
+                console.log(error);
+            });
+        }*/
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('sw.js')
+                .then(() => { console.log('Service Worker Registered'); });
+            }
+    </script>
+</body>
+</html>
