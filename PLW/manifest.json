@@ -1,0 +1,20 @@
+{
+    "name": "Plant WELM",
+    "short_name": "Protal",
+    "start_url": ".",
+    "background_color": "#687198",
+    "theme_color": "#607594",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "logo192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "logo512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }   
+    ]
+}
