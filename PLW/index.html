@@ -13,8 +13,8 @@
     <iframe id="linkto" src="about:blank"
      frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
     <script>
-        const queryString = window.location.search;
-        document.getElementById('linkto').src = "https://script.google.com/macros/s/AKfycbyZiktTf3AQgnas0rujWgGT4sFfBIGBN7wlxs7RNAML7pAsCnc4fuseDWnITgOvFwki/exec"+queryString;
+        const queryString = window.location.search.slice(1);
+        document.getElementById('linkto').src = "https://script.google.com/macros/s/AKfycbyZiktTf3AQgnas0rujWgGT4sFfBIGBN7wlxs7RNAML7pAsCnc4fuseDWnITgOvFwki/exec?pwalink=http://127.0.0.1:5500/PLW/&"+queryString;
         
         if("serviceWorker" in navigator) {
             console.log("Will service worker register?");
