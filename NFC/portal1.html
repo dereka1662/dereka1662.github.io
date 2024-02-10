@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="theme-color" content="#607594">
+    <title>NFC</title>
+    <link rel="icon" type="image/x-icon" href= "logo192.png">
+    <link rel="apple-touch-icon" href="logo512.png">
 </head>
 <body>
     <iframe id="linkto" src="about:blank"
     frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
     <script>
         const queryString = window.location.search.slice(1);
-        document.getElementById('linkto').src = "https://script.google.com/macros/s/AKfycbzVcJIqoDJMGNjpTLVl4LfGVcQbfyEoW1F1ZYU9NjPFl795teDHVnSGvxInx-jemnU3/exec?pwalink=http://127.0.0.1:5500/PLW/&"+queryString      
+        document.getElementById('linkto').src = "https://script.google.com/macros/s/AKfycbzVcJIqoDJMGNjpTLVl4LfGVcQbfyEoW1F1ZYU9NjPFl795teDHVnSGvxInx-jemnU3/exec?pwalink=https://dereka1662.github.io/NFC/portal1.html&"+queryString      
         window.history.pushState({}, document.title, window.location.pathname);
     </script>
 </body>
