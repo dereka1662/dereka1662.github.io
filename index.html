@@ -27,6 +27,7 @@
             }]
           })
           .then(device => {
+            console.log("the device is ")
             console.log(device);
             deviceSection.innerText = 'Device found: ' + device.name;
           })
