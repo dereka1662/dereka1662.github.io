@@ -44,6 +44,7 @@
     })
     .then(device => {
         console.log('Device found ' + device.name);
+       document.getElementById("deviceSection").innerHTML= 'Device found ' + device.name
     })
     .catch(error => { 
         console.log('Something went wrong: ' + error);
