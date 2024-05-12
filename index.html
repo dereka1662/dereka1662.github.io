@@ -18,14 +18,14 @@
         const scanButton = document.getElementById("scanButton");
         const deviceSection = document.getElementById("deviceSection");
         const DEVICE_NAME = "PEzE000001"; // 將此變數替換為您要尋找的設備名稱
-        console.log("start 8")        
+        console.log("start 9")        
 
         scanButton.addEventListener("click", function() {           
           navigator.bluetooth.requestDevice({
-             console.log(device)
-            filters: [{
+            /*filters: [{
               name: DEVICE_NAME
-            }]
+            }]*/
+            acceptAllDevices: true
           })
           .then(
             device => {
