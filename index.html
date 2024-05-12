@@ -18,13 +18,13 @@
         const scanButton = document.getElementById("scanButton");
         const deviceSection = document.getElementById("deviceSection");
         const DEVICE_NAME = "PEzE000001"; // 將此變數替換為您要尋找的設備名稱
-        console.log("start 9")        
-
+        console.log("start 1")        
+/*
         scanButton.addEventListener("click", function() {           
           navigator.bluetooth.requestDevice({
             /*filters: [{
               name: DEVICE_NAME
-            }]*/
+            }]
             acceptAllDevices: true
           })
           .then(
@@ -35,6 +35,31 @@
             console.log(error);
           });
         });
+*/
+
+ scanButton.addEventListener("click", function() {
+    navigator.bluetooth.requestLEScan({
+      filters: [{manufacturerData: {0x004C: {dataPrefix: new Uint8Array([
+        0x02, 0x15, // iBeacon identifier.
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  // My beacon UUID.
+      ])}}}],
+      keepRepeatedDevices: true
+    }).then(() => {
+      navigator.bluetooth.addEventListener('advertisementreceived', event => {
+        let appleData = event.manufacturerData.get(0x004C);
+        if (appleData.byteLength != 23) {
+          // Isn’t an iBeacon.
+          return;
+        }
+        console.log( appleData.getUint16(18, false);
+        console.log( appleData.getUint16(20, false);
+        console.log( -appleData.getInt8(22);
+        console.log( txPowerAt1m - event.rssi;
+    }
+
+
+
+        
 
     </script>
 </body>
