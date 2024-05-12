@@ -11,5 +11,15 @@
         <p style="font-size: 40px; font-style: italic; color:white;" font-style: italic>“Creativity is thinking up new things. Innovation is doing new things.”</p>
         <p style="font-size: 20px; font-style: italic; color:white; text-align: right;">-Theodore Levitt</p>
     </div>
+
+    <script>
+        navigator.bluetooth.requestDevice({ acceptAllDevices: true })
+        .then(device => {
+          console.log('Device Name: ' + device.name);
+        })
+        .catch(error => {
+          console.log('Argh! ' + error);
+        });
+    </script>
 </body>
 </html>
