@@ -12,20 +12,26 @@
         <p style="font-size: 20px; font-style: italic; color:white; text-align: right;">-Theodore Levitt</p>
     </div>
 <button id="scanButton">Scan Bluetooth Devices</button>
-<ul id="deviceList"></ul>
+<div id="deviceSection"></div>
 
     <script>
         const scanButton = document.getElementById("scanButton");
-        const deviceList = document.getElementById("deviceList");
+        const deviceSection = document.getElementById("deviceSection");
+        
+        const DEVICE_NAME = "PEzE000001"; // 將此變數替換為您要尋找的設備名稱
         
         scanButton.addEventListener("click", function() {
-          navigator.bluetooth.requestDevice({acceptAllDevices: true})
-          .then(device => {
-            let listItem = document.createElement('li');
-            listItem.textContent = 'Name: ' + device.name;
-            deviceList.appendChild(listItem);
+          navigator.bluetooth.requestDevice({
+            filters: [{
+              name: DEVICE_NAME
+            }]
           })
-          .catch(error => { console.log(error); });
+          .then(device => {
+            deviceSection.innerText = 'Device found: ' + device.name;
+          })
+          .catch(error => {
+            console.log(error);
+          });
         });
     </script>
 </body>
