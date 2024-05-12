@@ -22,15 +22,14 @@
 
         scanButton.addEventListener("click", function() {           
           navigator.bluetooth.requestDevice({
+             console.log(device)
             filters: [{
               name: DEVICE_NAME
             }]
           })
           .then(
-            console.log(device)  
             device => {
             console.log('> Requested ' + device.name + ' (' + device.id + ')');
-            //populateBluetoothDevices();
           })
           .catch(error => {
             console.log(error);
