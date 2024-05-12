@@ -11,18 +11,22 @@
         <p style="font-size: 40px; font-style: italic; color:white;" font-style: italic>“Creativity is thinking up new things. Innovation is doing new things.”</p>
         <p style="font-size: 20px; font-style: italic; color:white; text-align: right;">-Theodore Levitt</p>
     </div>
-    <button type="button" onclick="getBLEID();">Click Me!</button>
+    <button id="scanButton">Scan Bluetooth Devices</button>
+    <ul id="deviceList"></ul>
 
     <script>
-        function getBLEID(){
-            navigator.bluetooth.requestDevice({ acceptAllDevices: true })
-            .then(device => {
-              console.log('Device Name: ' + device.name);
-            })
-            .catch(error => {
-              console.log('Argh! ' + error);
-            });
-        }
+        const scanButton = document.getElementById("scanButton");
+        const deviceList = document.getElementById("deviceList");
+        
+        scanButton.addEventListener("click", function() {
+          navigator.bluetooth.requestDevice({acceptAllDevices: true})
+          .then(device => {
+            let listItem = document.createElement('li');
+            listItem.textContent = 'Name: ' + device.name;
+            deviceList.appendChild(listItem);
+          })
+          .catch(error => { console.log(error); });
+        });
     </script>
 </body>
 </html>
