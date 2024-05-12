@@ -38,23 +38,17 @@
 */
 
  scanButton.addEventListener("click", function() {
-    navigator.bluetooth.requestLEScan({
-        filters: [{services: [0x1234]}],
-        options: {
-            keepRepeatedDevices: true,
-        }
+
+    navigator.bluetooth.requestDevice({ 
+        acceptAllDevices: true 
     })
-    .then(() => {
-        console.log('Scan started');
-        navigator.bluetooth.addEventListener('advertisementreceived', (event) => {
-            console.log('Advertisement received');
-            console.log('Device Name: ' + event.device.name);
-            console.log('RSSI: ' + event.rssi);
-        });
+    .then(device => {
+        console.log('Device found ' + device.name);
     })
     .catch(error => { 
         console.log('Something went wrong: ' + error);
     });
+     
 });
 
 
