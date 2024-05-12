@@ -21,11 +21,16 @@
         const DEVICE_NAME = "PEzE000001"; // 將此變數替換為您要尋找的設備名稱
         console.log("start")
         scanButton.addEventListener("click", function() {
+
+            console.log(navigator.bluetooth.requestDevice({
+              filters: [{ name: 'PEzE000001' }]
+            }));
+
+            
           navigator.bluetooth.requestDevice({
             filters: [{
               name: DEVICE_NAME
             }]
-              console.log(device);
           })
           .then(device => {
             console.log("the device is ")
