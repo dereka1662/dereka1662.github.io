@@ -18,7 +18,7 @@
         const scanButton = document.getElementById("scanButton");
         const deviceSection = document.getElementById("deviceSection");
         const DEVICE_NAME = "PEzE000001"; // 將此變數替換為您要尋找的設備名稱
-        console.log("start2")        
+        console.log("start3")        
 
         scanButton.addEventListener("click", function() {           
           navigator.bluetooth.requestDevice({
@@ -28,9 +28,8 @@
             acceptAllDevices: true
           })
           .then(device => {
-            console.log("the device is ")
-            console.log(device);
-            deviceSection.innerText = 'Device found: ' + device.name;
+            log('> Requested ' + device.name + ' (' + device.id + ')');
+            populateBluetoothDevices();
           })
           .catch(error => {
             console.log(error);
