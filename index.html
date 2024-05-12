@@ -27,6 +27,7 @@
             }]
           })
           .then(device => {
+            console.log(device);
             deviceSection.innerText = 'Device found: ' + device.name;
           })
           .catch(error => {
